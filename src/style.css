@@ -2,215 +2,214 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
-  padding: 0;
+  padding: 10;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
 body{
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #3172f4;
-  padding: 30px;
+  padding: 20px;
 }
-.container{
+.canvas{
   position: relative;
-  max-width: 850px;
-  width: 100%;
+  padding: 50px 40px;
+  max-width: 1000px;
+  width: 90%;
   background: #fff;
-  padding: 40px 30px;
+  perspective: 2500px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  perspective: 2700px;
 }
-.container .cover{
+.canvas .cover{
   position: absolute;
-  top: 0;
-  left: 50%;
   height: 100%;
   width: 50%;
-  z-index: 98;
-  transition: all 1s ease;
+  top: 0;
+  left: 50%;
+  z-index: 100;
   transform-origin: left;
+  transition: all 0.5s ease;
   transform-style: preserve-3d;
 }
-.container #flip:checked ~ .cover{
+.canvas #pageflip:checked ~ .cover{
   transform: rotateY(-180deg);
 }
- .container .cover .front,
- .container .cover .back{
+.canvas .cover .back, 
+.canvas .cover .front{
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.cover .back{
+.back .cover{
+  backface-visibility: visible;
   transform: rotateY(180deg);
-  backface-visibility: hidden;
 }
-.container .cover::before,
-.container .cover::after{
+.canvas .cover::before,
+.canvas .cover::after{
   content: '';
   position: absolute;
-  height: 100%;
   width: 100%;
+  height: 100%;
   background: #3172f4;
   opacity: 0.5;
   z-index: 12;
 }
-.container .cover::after{
-  opacity: 0.3;
-  transform: rotateY(180deg);
+.canvas .cover::after{
+  opacity: 0.4;
   backface-visibility: hidden;
+  transform: rotateY(180deg);
 }
-.container .cover img{
+.canvas .cover img{
   position: absolute;
-  height: 100%;
   width: 100%;
-  object-fit: cover;
+  height: 100%;
   z-index: 10;
+  object-fit: cover;
 }
-.container .cover .text{
+.canvas .cover .text{
   position: absolute;
-  z-index: 130;
   height: 100%;
   width: 100%;
+  z-index: 130;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
-.cover .text .text-1,
-.cover .text .text-2{
-  font-size: 26px;
-  font-weight: 600;
+.cover .text .text1,
+.cover .text .text2{
+  font-size: 24px;
+  font-weight: 500;
   color: #fff;
   text-align: center;
 }
-.cover .text .text-2{
+.cover .text .text2{
   font-size: 15px;
   font-weight: 500;
 }
-.container .forms{
+.canvas .forms{
   height: 100%;
   width: 100%;
   background: #fff;
 }
-.container .form-content{
+.canvas .formContent{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.form-content .login-form,
-.form-content .signup-form{
+.formContent .loginForm,
+.formContent .signupForm{
   width: calc(100% / 2 - 25px);
 }
-.forms .form-content .title{
+.forms .formContent .title{
   position: relative;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 550;
   color: rgb(81, 72, 72);
 }
-.forms .form-content .title:before{
+.forms .formContent .title:before{
   content: '';
   position: absolute;
-  left: 0;
-  bottom: 0;
   height: 3px;
   width: 25px;
+  left: 0;
+  bottom: 0;
   background: #3172f4;
 }
-.forms .signup-form  .title:before{
+.forms .signupForm  .title:before{
   width: 20px;
 }
-.forms .form-content .input-boxes{
+.forms .formContent .inputBoxes{
   margin-top: 30px;
 }
-.forms .form-content .input-box{
+.forms .formContent .inputBox{
   display: flex;
-  align-items: center;
   height: 50px;
   width: 100%;
-  margin: 10px 0;
+  align-items: center;
+  margin: 10px;
   position: relative;
 }
-.form-content .input-box input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  padding: 0 30px;
+.formContent .inputBox input{
   font-size: 16px;
   font-weight: 500;
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0 30px;
   border-bottom: 2px solid rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
-.form-content .input-box input:focus,
-.form-content .input-box input:valid{
+.formContent .inputBox input:focus,
+.formContent .inputBox input:valid{
   border-color: #3172f4;
 }
-.form-content .input-box i{
+.formContent .inputBox i{
   position: absolute;
   color: #3172f4;
   font-size: 17px;
 }
-.forms .form-content .text{
+.forms .formContent .text{
   font-size: 14px;
   font-weight: 500;
   color: rgb(81, 72, 72);
 }
-.forms .form-content .text a{
+.forms .formContent .text a{
   text-decoration: none;
 }
-.forms .form-content .text a:hover{
+.forms .formContent .text a:hover{
   text-decoration: underline;
 }
-.forms .form-content .button{
+.forms .formContent .button{
   color: #fff;
-  margin-top: 40px;
+  margin-top: 35px;
 }
-.forms .form-content .button input{
+.forms .formContent .button input{
   color: #fff;
   background: #3172f4;
   border-radius: 6px;
-  padding: 0;
+  padding: 10;
   cursor: pointer;
   transition: all 0.4s ease;
 }
-.forms .form-content .button input:hover{
+.forms .formContent .button input:hover{
   background: #5b82dc;
 }
-.forms .form-content label{
+.forms .formContent label{
   color: #5b82dc;
   cursor: pointer;
 }
-.forms .form-content label:hover{
+.forms .formContent label:hover{
   text-decoration: underline;
 }
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text{
+.forms .formContent .signUpText,
+.forms .formContent .login-text{
   text-align: center;
   margin-top: 25px;
 }
-.container #flip{
+.canvas #pageflip{
   display: none;
 }
-@media (max-width: 730px) {
-  .container .cover{
+@media (max-width: 700px) {
+  .canvas .cover{
     display: none;
   }
-  .form-content .login-form,
-  .form-content .signup-form{
+  .formContent .signupForm,
+  .formContent .loginForm{
     width: 100%;
   }
-  .form-content .signup-form{
+  .formContent .signupForm{
     display: none;
   }
-  .container #flip:checked ~ .forms .signup-form{
+  .canvas #pageflip:checked ~ .forms .loginForm{
+    display: none;
+  }
+  .canvas #pageflip:checked ~ .forms .signupForm{
     display: block;
-  }
-  .container #flip:checked ~ .forms .login-form{
-    display: none;
   }
 }
